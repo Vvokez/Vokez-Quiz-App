@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Vokez Quiz App</string>
+    <string name="q1">Question 1</string>
+    <string name="q1_details">What word in the English language is always spelled incorrectly?</string>
+    <string name="q2">Question 2</string>
+    <string name="q2_details">If Teresa’s daughter is my daughter’s mother, what am I to Teresa?</string>
+    <string name="q2_opt1">The Grandmother</string>
+    <string name="q2_opt2">The Mother</string>
+    <string name="q2_opt3">The daughter</string>
+    <string name="q2_opt4">I am Teresa</string>
+    <string name="q3">Question 3</string>
+    <string name="q3_details">There is a pot with three oranges. Suppose that you take two oranges from the dish. How many oranges do you have?</string>
+    <string name="q3_opt1">Zero</string>
+    <string name="q3_opt2">One</string>
+    <string name="q3_opt3">Two</string>
+    <string name="q3_opt4">Three</string>
+    <string name="q4">Question 4</string>
+    <string name="q4_details">What one word has the most letters in it?</string>
+    <string name="q5">Question 5</string>
+    <string name="q5_details">What two things can you never eat for breakfast?</string>
+    <string name="q5_opt1">Chocolate</string>
+    <string name="q5_opt2">Supper</string>
+    <string name="q5_opt3">Ice Cream</string>
+    <string name="q5_opt4">Lunch</string>
+    <string name="q6">Question 6</string>
+    <string name="q6_details">Which 3 letters turn a girl into a woman?</string>
+    <string name="q6_opt1">E</string>
+    <string name="q6_opt2">L</string>
+    <string name="q6_opt3">A</string>
+    <string name="q6_opt4">G</string>
+    <string name="but_restart">Restart</string>
+    <string name="but_submit">Submit</string>
+</resources>

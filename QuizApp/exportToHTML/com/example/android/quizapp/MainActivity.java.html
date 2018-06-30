@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,255); }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com.example.android.quizapp; 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">android.content.Intent; 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">android.view.View; 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">android.widget.CheckBox; 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">android.widget.EditText; 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">android.widget.RadioButton; 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">android.widget.RadioGroup; 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">android.widget.Toast; 
+<a name="l12"><span class="ln">12   </span></a> 
+<a name="l13"><span class="ln">13   </span></a></span><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+<a name="l14"><span class="ln">14   </span></a>    </span><span class="s0">int </span><span class="s1">scored = </span><span class="s2">0</span><span class="s1">; 
+<a name="l15"><span class="ln">15   </span></a>    EditText questionOne, questionFour; 
+<a name="l16"><span class="ln">16   </span></a>    RadioGroup radioGroupQ2, radioGroupQ3; 
+<a name="l17"><span class="ln">17   </span></a>    CheckBox q5OptionA, q5OptionB, q5OptionC, q5OptionD, q6OptionA, q6OptionB, q6OptionC, q6OptionD; 
+<a name="l18"><span class="ln">18   </span></a>    RadioButton radioButtonQ2, radioButtonQ3; 
+<a name="l19"><span class="ln">19   </span></a>    </span><span class="s0">int </span><span class="s1">grade; 
+<a name="l20"><span class="ln">20   </span></a> 
+<a name="l21"><span class="ln">21   </span></a>    @Override 
+<a name="l22"><span class="ln">22   </span></a>    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+<a name="l23"><span class="ln">23   </span></a>        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+<a name="l24"><span class="ln">24   </span></a>        setContentView(R.layout.activity_main); 
+<a name="l25"><span class="ln">25   </span></a>    } 
+<a name="l26"><span class="ln">26   </span></a> 
+<a name="l27"><span class="ln">27   </span></a>    </span><span class="s3">//This method first checks that all the questions have been answered then assigns a score.</span><span class="s1"> 
+<a name="l28"><span class="ln">28   </span></a>    </span><span class="s0">public void </span><span class="s1">gradeQuiz(View view) { 
+<a name="l29"><span class="ln">29   </span></a>        grade = </span><span class="s2">0</span><span class="s1">; 
+<a name="l30"><span class="ln">30   </span></a>        </span><span class="s3">//Validating Question 1</span><span class="s1"> 
+<a name="l31"><span class="ln">31   </span></a>        questionOne = findViewById(R.id.questionOneText); 
+<a name="l32"><span class="ln">32   </span></a>        String questionOneInput = questionOne.getText().toString(); 
+<a name="l33"><span class="ln">33   </span></a>        </span><span class="s0">if </span><span class="s1">(questionOneInput.isEmpty()) { 
+<a name="l34"><span class="ln">34   </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Please answer all the questions first!&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show(); 
+<a name="l35"><span class="ln">35   </span></a>            </span><span class="s0">return</span><span class="s1">; 
+<a name="l36"><span class="ln">36   </span></a>        } 
+<a name="l37"><span class="ln">37   </span></a>        </span><span class="s3">//Validating Question 2</span><span class="s1"> 
+<a name="l38"><span class="ln">38   </span></a>        radioGroupQ2 = findViewById(R.id.radioGroupQ2); 
+<a name="l39"><span class="ln">39   </span></a>        </span><span class="s0">if </span><span class="s1">(radioGroupQ2.getCheckedRadioButtonId() == -</span><span class="s2">1</span><span class="s1">) { 
+<a name="l40"><span class="ln">40   </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Please answer all the questions first!&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show(); 
+<a name="l41"><span class="ln">41   </span></a>            </span><span class="s0">return</span><span class="s1">; 
+<a name="l42"><span class="ln">42   </span></a>        } 
+<a name="l43"><span class="ln">43   </span></a>        </span><span class="s3">//Validating Question 3</span><span class="s1"> 
+<a name="l44"><span class="ln">44   </span></a>        radioGroupQ3 = findViewById(R.id.radioGroupQ3); 
+<a name="l45"><span class="ln">45   </span></a>        </span><span class="s0">if </span><span class="s1">(radioGroupQ3.getCheckedRadioButtonId() == -</span><span class="s2">1</span><span class="s1">) { 
+<a name="l46"><span class="ln">46   </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Please answer all the questions first!&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show(); 
+<a name="l47"><span class="ln">47   </span></a>            </span><span class="s0">return</span><span class="s1">; 
+<a name="l48"><span class="ln">48   </span></a>        } 
+<a name="l49"><span class="ln">49   </span></a>        </span><span class="s3">//Validating Question 4</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a>        questionFour = findViewById(R.id.questionFourText); 
+<a name="l51"><span class="ln">51   </span></a>        String questionFourInput = questionFour.getText().toString(); 
+<a name="l52"><span class="ln">52   </span></a>        </span><span class="s0">if </span><span class="s1">(questionFourInput.isEmpty()) { 
+<a name="l53"><span class="ln">53   </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Please answer all the questions first!&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show(); 
+<a name="l54"><span class="ln">54   </span></a>            </span><span class="s0">return</span><span class="s1">; 
+<a name="l55"><span class="ln">55   </span></a>        } 
+<a name="l56"><span class="ln">56   </span></a>        </span><span class="s3">//Validating Question 5</span><span class="s1"> 
+<a name="l57"><span class="ln">57   </span></a>        q5OptionA = findViewById(R.id.question5OptionA); 
+<a name="l58"><span class="ln">58   </span></a>        q5OptionB = findViewById(R.id.question5OptionB); 
+<a name="l59"><span class="ln">59   </span></a>        q5OptionC = findViewById(R.id.question5OptionC); 
+<a name="l60"><span class="ln">60   </span></a>        q5OptionD = findViewById(R.id.question5OptionD); 
+<a name="l61"><span class="ln">61   </span></a>        </span><span class="s0">if </span><span class="s1">(!(q5OptionA.isChecked() || q5OptionB.isChecked() || q5OptionC.isChecked() || q5OptionD.isChecked())) { 
+<a name="l62"><span class="ln">62   </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Please answer all the questions first!&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show(); 
+<a name="l63"><span class="ln">63   </span></a>            </span><span class="s0">return</span><span class="s1">; 
+<a name="l64"><span class="ln">64   </span></a>        } 
+<a name="l65"><span class="ln">65   </span></a>        </span><span class="s3">//Validating Question 6</span><span class="s1"> 
+<a name="l66"><span class="ln">66   </span></a>        q6OptionA = findViewById(R.id.q6OptionA); 
+<a name="l67"><span class="ln">67   </span></a>        q6OptionB = findViewById(R.id.q6OptionB); 
+<a name="l68"><span class="ln">68   </span></a>        q6OptionC = findViewById(R.id.q6OptionC); 
+<a name="l69"><span class="ln">69   </span></a>        q6OptionD = findViewById(R.id.q6OptionD); 
+<a name="l70"><span class="ln">70   </span></a>        </span><span class="s0">if </span><span class="s1">(!(q6OptionA.isChecked() || q6OptionB.isChecked() || q6OptionC.isChecked() || q6OptionD.isChecked())) { 
+<a name="l71"><span class="ln">71   </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Please answer all the questions first!&quot;</span><span class="s1">, Toast.LENGTH_SHORT).show(); 
+<a name="l72"><span class="ln">72   </span></a>            </span><span class="s0">return</span><span class="s1">; 
+<a name="l73"><span class="ln">73   </span></a>        } 
+<a name="l74"><span class="ln">74   </span></a>        </span><span class="s3">//Once we have verified that all the questions have been answered we now mark the quiz</span><span class="s1"> 
+<a name="l75"><span class="ln">75   </span></a>        </span><span class="s3">// Mark Question 1</span><span class="s1"> 
+<a name="l76"><span class="ln">76   </span></a>        </span><span class="s0">if </span><span class="s1">(questionOneInput.equalsIgnoreCase(</span><span class="s4">&quot;incorrectly&quot;</span><span class="s1">)) { 
+<a name="l77"><span class="ln">77   </span></a>            grade = grade + </span><span class="s2">1</span><span class="s1">; 
+<a name="l78"><span class="ln">78   </span></a>        } 
+<a name="l79"><span class="ln">79   </span></a>        </span><span class="s3">//Mark Question 2</span><span class="s1"> 
+<a name="l80"><span class="ln">80   </span></a>        radioButtonQ2 = findViewById(R.id.radio_optionD); 
+<a name="l81"><span class="ln">81   </span></a>        </span><span class="s0">if </span><span class="s1">(radioButtonQ2.isChecked()) { 
+<a name="l82"><span class="ln">82   </span></a>            grade = grade + </span><span class="s2">1</span><span class="s1">; 
+<a name="l83"><span class="ln">83   </span></a>        } 
+<a name="l84"><span class="ln">84   </span></a>        </span><span class="s3">//Mark Question 3</span><span class="s1"> 
+<a name="l85"><span class="ln">85   </span></a>        radioButtonQ3 = findViewById(R.id.q3Radio_optionC); 
+<a name="l86"><span class="ln">86   </span></a>        </span><span class="s0">if </span><span class="s1">(radioButtonQ3.isChecked()) { 
+<a name="l87"><span class="ln">87   </span></a>            grade = grade + </span><span class="s2">1</span><span class="s1">; 
+<a name="l88"><span class="ln">88   </span></a>        } 
+<a name="l89"><span class="ln">89   </span></a>        </span><span class="s3">//Mark Question 4</span><span class="s1"> 
+<a name="l90"><span class="ln">90   </span></a>        </span><span class="s0">if </span><span class="s1">(questionFourInput.equalsIgnoreCase(</span><span class="s4">&quot;alphabet&quot;</span><span class="s1">)) { 
+<a name="l91"><span class="ln">91   </span></a>            grade = grade + </span><span class="s2">1</span><span class="s1">; 
+<a name="l92"><span class="ln">92   </span></a>        } 
+<a name="l93"><span class="ln">93   </span></a>        </span><span class="s3">//Mark Question 5. For this one gets a 0 if one option is wrong and 3 points if all options are right.</span><span class="s1"> 
+<a name="l94"><span class="ln">94   </span></a>        </span><span class="s0">if </span><span class="s1">((q5OptionB.isChecked() &amp;&amp; q5OptionD.isChecked()) &amp;&amp; !q5OptionA.isChecked() &amp;&amp; !q5OptionC.isChecked()) { 
+<a name="l95"><span class="ln">95   </span></a>            grade = grade + </span><span class="s2">3</span><span class="s1">; 
+<a name="l96"><span class="ln">96   </span></a>        } 
+<a name="l97"><span class="ln">97   </span></a>        </span><span class="s0">if </span><span class="s1">(q6OptionA.isChecked() &amp;&amp; q6OptionC.isChecked() &amp;&amp; q6OptionD.isChecked() &amp;&amp; !q6OptionB.isChecked()) { 
+<a name="l98"><span class="ln">98   </span></a> 
+<a name="l99"><span class="ln">99   </span></a>            grade = grade + </span><span class="s2">3</span><span class="s1">; 
+<a name="l100"><span class="ln">100  </span></a>        } 
+<a name="l101"><span class="ln">101  </span></a>        grade = grade * </span><span class="s2">10</span><span class="s1">; 
+<a name="l102"><span class="ln">102  </span></a>        </span><span class="s0">if </span><span class="s1">(grade == </span><span class="s2">100</span><span class="s1">) { 
+<a name="l103"><span class="ln">103  </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Congratulations!!!</span><span class="s0">\n</span><span class="s4">You have a perfect SCORE!&quot;</span><span class="s1">, Toast.LENGTH_LONG).show(); 
+<a name="l104"><span class="ln">104  </span></a>        } </span><span class="s0">else </span><span class="s1">{ 
+<a name="l105"><span class="ln">105  </span></a>            Toast.makeText(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">&quot;Well done, you scored, &quot; </span><span class="s1">+ grade + </span><span class="s4">&quot;%&quot;</span><span class="s1">, Toast.LENGTH_LONG).show(); 
+<a name="l106"><span class="ln">106  </span></a>        } 
+<a name="l107"><span class="ln">107  </span></a>    } 
+<a name="l108"><span class="ln">108  </span></a> 
+<a name="l109"><span class="ln">109  </span></a>    </span><span class="s3">//This method resets the app so that the user can have another go at the quiz</span><span class="s1"> 
+<a name="l110"><span class="ln">110  </span></a>    </span><span class="s0">public void </span><span class="s1">resetQuiz(View view) { 
+<a name="l111"><span class="ln">111  </span></a>        </span><span class="s0">try </span><span class="s1">{ 
+<a name="l112"><span class="ln">112  </span></a>            Intent intent; 
+<a name="l113"><span class="ln">113  </span></a>            intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName()); 
+<a name="l114"><span class="ln">114  </span></a>            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+<a name="l115"><span class="ln">115  </span></a>            startActivity(intent); 
+<a name="l116"><span class="ln">116  </span></a>        } </span><span class="s0">catch </span><span class="s1">(Exception e) { 
+<a name="l117"><span class="ln">117  </span></a>            e.printStackTrace(); 
+<a name="l118"><span class="ln">118  </span></a>        } 
+<a name="l119"><span class="ln">119  </span></a>    } 
+<a name="l120"><span class="ln">120  </span></a>}</span></pre>
+</body>
+</html>
